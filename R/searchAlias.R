@@ -6,13 +6,13 @@
 #' @export
 searchAlias<-function(species="HUMAN",querylist){
   if(species=="HUMAN"){
-    result=as.data.frame(t(sapply(lista,function(x){
+    result=as.data.frame(t(sapply(querylist,function(x){
       homodf[grepl(x,homodf$ALIAS),]
     })))
     return(result)
   }
   if(species=="MUS"){
-    result=as.data.frame(t(sapply(lista,function(x){
+    result=as.data.frame(t(sapply(querylist,function(x){
       musdf[grepl(x,musdf$ALIAS),]
     })))
     return(results)
