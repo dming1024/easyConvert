@@ -16,7 +16,7 @@ searchAlias<-function(species=c("HUMAN","MUS"),querylist){
     result=as.data.frame(t(sapply(querylist,function(x){
       musdf[grepl(sprintf("\\b%s\\b",x),musdf$ALIAS,perl = T),]
     })))
-    return(results)
+    return(result)
   }
   
 }
