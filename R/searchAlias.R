@@ -7,15 +7,15 @@
 searchAlias<-function(species="HUMAN",querylist){
   if(species=="HUMAN"){
     result=as.data.frame(t(sapply(querylist,function(x){
-      homodf[grepl(x,homodf$ALIAS,fixed = T,ignore.case = T),]
+      homodf[grepl(sprintf("\\b%s\\b",x),homodf$ALIAS,perl = T),]
     })))
     return(result)
   }
   if(species=="MUS"){
     result=as.data.frame(t(sapply(querylist,function(x){
-      musdf[grepl(x,musdf$ALIAS,fixed = T,ignore.case = T),]
+      musdf[grepl(sprintf("\\b%s\\b",x),musdf$ALIAS,perl = T),]
     })))
     return(results)
   }
-
+  
 }
