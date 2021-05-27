@@ -10,11 +10,29 @@ easyConvert<-function(species=c("HUMAN","MUS"),queryList,queryType=c("ENTREZID",
   queryType <- match.arg(queryType)
 
     if(species=="HUMAN"){
-      results=eval(parse(text = sprintf("results=homodf[match(queryList,homodf$%s),]",queryType)))
+
+      if(queryType=="NCBI"){
+
+        results=as.data.frame(t(sapply(querylist,function(x){
+          homodf[grepl(sprintf("\\b%s\\b",x),homodf$NCBI,perl = T),]
+        })))
+
+      }else{
+        results=eval(parse(text = sprintf("results=homodf[match(queryList,homodf$%s),]",queryType)))
+      }
       return(results)
     }
     if(species=="MUS"){
-      results=eval(parse(text = sprintf("results=musdf[match(queryList,musdf$%s),]",queryType)))
+
+      if(queryType=="NCBI"){
+
+        results=as.data.frame(t(sapply(querylist,function(x){
+          musdf[grepl(sprintf("\\b%s\\b",x),musdf$NCBI,perl = T),]
+        })))
+
+      }else{
+        results=eval(parse(text = sprintf("results=musdf[match(queryList,musdf$%s),]",queryType)))
+      }
       return(results)
     }
 
