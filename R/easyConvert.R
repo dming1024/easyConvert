@@ -13,8 +13,8 @@ easyConvert<-function(species=c("HUMAN","MUS"),queryList,queryType=c("ENTREZID",
 
       if(queryType=="NCBI"){
 
-        results=as.data.frame(t(sapply(querylist,function(x){
-          homodf[grepl(sprintf("\\b%s\\b",x),homodf$NCBI,perl = T),]
+        results=as.data.frame(t(sapply(queryList,function(x){
+          homodf[grepl(sprintf("%s",x),homodf$NCBI,perl = T),]
         })))
 
       }else{
@@ -26,8 +26,8 @@ easyConvert<-function(species=c("HUMAN","MUS"),queryList,queryType=c("ENTREZID",
 
       if(queryType=="NCBI"){
 
-        results=as.data.frame(t(sapply(querylist,function(x){
-          musdf[grepl(sprintf("\\b%s\\b",x),musdf$NCBI,perl = T),]
+        results=as.data.frame(t(sapply(queryList,function(x){
+          musdf[grepl(sprintf("%s",x),musdf$NCBI,perl = T),]
         })))
 
       }else{
