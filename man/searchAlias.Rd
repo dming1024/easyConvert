@@ -4,7 +4,7 @@
 \alias{searchAlias}
 \title{Search Alias/synonymous name of Genes}
 \usage{
-searchAlias(species = "HUMAN", querylist)
+searchAlias(species = c("HUMAN", "MUS"), querylist)
 }
 \arguments{
 \item{species}{default is \code{HUMAN},currently only support 2 species,the other is \code{MUS}}

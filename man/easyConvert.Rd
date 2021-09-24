@@ -5,9 +5,9 @@
 \title{Convert GeneID to each others}
 \usage{
 easyConvert(
-  species = "HUMAN",
+  species = c("HUMAN", "MUS"),
   queryList,
-  queryType = c("ENTREZID", "SYMBOL", "ENSEMBL")
+  queryType = c("ENTREZID", "SYMBOL", "ENSEMBL", "NCBI")
 )
 }
 \arguments{
